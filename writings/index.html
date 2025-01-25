@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>writings</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #000000;
+            color: #add8e6;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #00bfff;
+        }
+        h2 {
+            color: #87cefa;
+        }
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #87cefa;
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            color: #87cefa;
+            font-weight: bold;
+            border: 2px solid transparent;
+            border-bottom: none;
+        }
+        .tab:hover {
+            color: #1e90ff;
+        }
+        .tab.active {
+            border-color: #1e90ff;
+            color: #00bfff;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .writing-item {
+            margin-bottom: 20px;
+        }
+        .writing-title {
+            font-size: 1.2rem;
+            color: #00bfff;
+        }
+        .writing-body {
+            font-size: 1rem;
+            color: #add8e6;
+            margin-top: 5px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const tabs = document.querySelectorAll(".tab");
+            const contents = document.querySelectorAll(".tab-content");
+
+            tabs.forEach((tab, index) => {
+                tab.addEventListener("click", () => {
+                    tabs.forEach(t => t.classList.remove("active"));
+                    contents.forEach(c => c.classList.remove("active"));
+
+                    tab.classList.add("active");
+                    contents[index].classList.add("active");
+                });
+            });
+
+            // Activate the first tab by default
+            tabs[0].classList.add("active");
+            contents[0].classList.add("active");
+        });
+    </script>
+</head>
+<body>
+    <h1>my writings</h1>
+    <div class="tabs">
+        <div class="tab" data-target="thoughts">Thoughts</div>
+        <div class="tab" data-target="essays">Essays</div>
+        <div class="tab" data-target="poems">Poems</div>
+    </div>
+    <div class="tab-content" id="thoughts">
+        <div class="writing-item">
+            <div class="writing-title">On the Nature of Time</div>
+            <div class="writing-body">Time is but a shadow cast by our minds...</div>
+        </div>
+        <div class="writing-item">
+            <div class="writing-title">A Thought on Solitude</div>
+            <div class="writing-body">Solitude is a mirror; it reflects what we hide from ourselves...</div>
+        </div>
+    </div>
+    <div class="tab-content" id="essays">
+        <div class="writing-item">
+            <div class="writing-title">The Interplay of AI and Humanity</div>
+            <div class="writing-body">Artificial intelligence is not the replacement of humanity, but a tool to enhance it...</div>
+        </div>
+        <div class="writing-item">
+            <div class="writing-title">Understanding Intelligence</div>
+            <div class="writing-body">Intelligence is neither confined to humans nor machines; it is the ability to adapt and solve...</div>
+        </div>
+    </div>
+    <div class="tab-content" id="poems">
+        <div class="writing-item">
+            <div class="writing-title">Ode to the Unknown</div>
+            <div class="writing-body">Beneath the stars, I wander still, / Chasing dreams, against my will...</div>
+        </div>
+        <div class="writing-item">
+            <div class="writing-title">The Eternal Flame</div>
+            <div class="writing-body">An ember glows within my chest, / A fire unyielding, put to the test...</div>
+        </div>
+    </div>
+</body>
+</html>
