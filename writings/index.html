@@ -14,105 +14,32 @@
         }
         h1 {
             color: #00bfff;
+            text-align: center;
         }
-        h2 {
+        ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        li {
+            margin: 15px 0;
+        }
+        a {
             color: #87cefa;
-        }
-        .tabs {
-            display: flex;
-            border-bottom: 2px solid #87cefa;
-            margin-bottom: 20px;
-        }
-        .tab {
-            padding: 10px 20px;
-            cursor: pointer;
-            color: #87cefa;
-            font-weight: bold;
-            border: 2px solid transparent;
-            border-bottom: none;
-        }
-        .tab:hover {
-            color: #1e90ff;
-        }
-        .tab.active {
-            border-color: #1e90ff;
-            color: #00bfff;
-        }
-        .tab-content {
-            display: none;
-        }
-        .tab-content.active {
-            display: block;
-        }
-        .writing-item {
-            margin-bottom: 20px;
-        }
-        .writing-title {
-            font-size: 1.2rem;
-            color: #00bfff;
             text-decoration: none;
+            font-size: 1.2em;
         }
-        .writing-title:hover {
+        a:hover {
             color: #1e90ff;
         }
     </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const tabs = document.querySelectorAll(".tab");
-            const contents = document.querySelectorAll(".tab-content");
-
-            tabs.forEach((tab, index) => {
-                tab.addEventListener("click", () => {
-                    tabs.forEach(t => t.classList.remove("active"));
-                    contents.forEach(c => c.classList.remove("active"));
-
-                    tab.classList.add("active");
-                    contents[index].classList.add("active");
-                });
-            });
-
-            // Activate the first tab by default
-            tabs[0].classList.add("active");
-            contents[0].classList.add("active");
-        });
-    </script>
 </head>
 <body>
-    <h1>My Writings</h1>
-    <div class="tabs">
-        <div class="tab" data-target="thoughts">Thoughts</div>
-        <div class="tab" data-target="essays">Essays</div>
-        <div class="tab" data-target="poems">Poems</div>
-    </div>
-
-    <!-- Thoughts Section -->
-    <div class="tab-content" id="thoughts">
-        <div class="writing-item">
-            <p><strong>On the Nature of Time</strong><br>Time is but a shadow cast by our minds...</p>
-        </div>
-        <div class="writing-item">
-            <p><strong>A Thought on Solitude</strong><br>Solitude is a mirror; it reflects what we hide from ourselves...</p>
-        </div>
-    </div>
-
-    <!-- Essays Section -->
-    <div class="tab-content" id="essays">
-        <div class="writing-item">
-            <a href="essays/essay1.html" class="writing-title">The Interplay of AI and Humanity</a>
-        </div>
-        <div class="writing-item">
-            <a href="essays/essay2.html" class="writing-title">Understanding Intelligence</a>
-        </div>
-    </div>
-
-    <!-- Poems Section -->
-    <div class="tab-content" id="poems">
-        <div class="writing-item">
-            <p><strong>Ode to the Unknown</strong><br>Beneath the stars, I wander still, / Chasing dreams, against my will...</p>
-        </div>
-        <div class="writing-item">
-            <p><strong>The Eternal Flame</strong><br>An ember glows within my chest, / A fire unyielding, put to the test...</p>
-        </div>
-    </div>
+    <h1>Writings</h1>
+    <ul>
+        <li><a href="thoughts.html">thoughts</a></li>
+        <li><a href="essays.html">essays</a></li>
+        <li><a href="poetry.html">poetry</a></li>
+    </ul>
 </body>
 </html>
