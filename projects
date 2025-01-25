@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Projects</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #000000;
+            color: #add8e6;
+        }
+        h1 {
+            color: #00bfff;
+        }
+        a {
+            text-decoration: none;
+            color: #87cefa;
+        }
+        a:hover {
+            color: #1e90ff;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Projects</h1>
+    <ul>
+        <li><a href="https://github.com/midnightoatmeal/California_Housing_Prices">Project 1</a></li>
+        <li><a href="https://github.com/midnightoatmeal/statistics_dashboard">Project 2</a></li>
+    </ul>
+</body>
+</html>
