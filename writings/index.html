@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>writings</title>
+    <title>my writings</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -50,11 +50,10 @@
         .writing-title {
             font-size: 1.2rem;
             color: #00bfff;
+            text-decoration: none;
         }
-        .writing-body {
-            font-size: 1rem;
-            color: #add8e6;
-            margin-top: 5px;
+        .writing-title:hover {
+            color: #1e90ff;
         }
     </style>
     <script>
@@ -79,39 +78,40 @@
     </script>
 </head>
 <body>
-    <h1>my writings</h1>
+    <h1>My Writings</h1>
     <div class="tabs">
-        <div class="tab" data-target="thoughts">thoughts</div>
-        <div class="tab" data-target="essays">essays</div>
-        <div class="tab" data-target="poems">poems</div>
+        <div class="tab" data-target="thoughts">Thoughts</div>
+        <div class="tab" data-target="essays">Essays</div>
+        <div class="tab" data-target="poems">Poems</div>
     </div>
+
+    <!-- Thoughts Section -->
     <div class="tab-content" id="thoughts">
         <div class="writing-item">
-            <div class="writing-title">On the Nature of Time</div>
-            <div class="writing-body">Time is but a shadow cast by our minds...</div>
+            <p><strong>On the Nature of Time</strong><br>Time is but a shadow cast by our minds...</p>
         </div>
         <div class="writing-item">
-            <div class="writing-title">A Thought on Solitude</div>
-            <div class="writing-body">Solitude is a mirror; it reflects what we hide from ourselves...</div>
+            <p><strong>A Thought on Solitude</strong><br>Solitude is a mirror; it reflects what we hide from ourselves...</p>
         </div>
     </div>
-  <div class="tab-content" id="essays">
-    <div class="writing-item">
-        <a href="essays/essay1.html" class="writing-title">The Philosophy of The Dark Knight</a>
+
+    <!-- Essays Section -->
+    <div class="tab-content" id="essays">
+        <div class="writing-item">
+            <a href="essays/essay1.html" class="writing-title">The Interplay of AI and Humanity</a>
+        </div>
+        <div class="writing-item">
+            <a href="essays/essay2.html" class="writing-title">Understanding Intelligence</a>
+        </div>
     </div>
-    <div class="writing-item">
-        <a href="essays/essay2.html" class="writing-title">A message for the future generations</a>
-    </div>
-</div>
-    </div>
+
+    <!-- Poems Section -->
     <div class="tab-content" id="poems">
         <div class="writing-item">
-            <div class="writing-title">Ode to the Unknown</div>
-            <div class="writing-body">Beneath the stars, I wander still, / Chasing dreams, against my will...</div>
+            <p><strong>Ode to the Unknown</strong><br>Beneath the stars, I wander still, / Chasing dreams, against my will...</p>
         </div>
         <div class="writing-item">
-            <div class="writing-title">The Eternal Flame</div>
-            <div class="writing-body">An ember glows within my chest, / A fire unyielding, put to the test...</div>
+            <p><strong>The Eternal Flame</strong><br>An ember glows within my chest, / A fire unyielding, put to the test...</p>
         </div>
     </div>
 </body>
