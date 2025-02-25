@@ -1,12 +1,11 @@
+// Debugging Check
 alert("thoughts.js is running!");  // This should pop up when the page loads
 console.log("thoughts.js loaded successfully!"); // This should appear in the Console
 
+// Wait for the page to fully load
 document.addEventListener("DOMContentLoaded", function() {
-    const thoughts = [
-        
 
-const thoughts = [
-  
+    const thoughts = [
 "I set out to know the secrets of the heart only to understand that the heart doesn't exist.”,
 "Everyone was infinitely evil and good; and thats how we were carrying on.",
 "I had so much love in me that I could drown my lover.",
@@ -81,52 +80,6 @@ const thoughts = [
 "Manipulating words is manipulating reality.",
 "Life is nothing but what we truly wish for, and the consequences of getting them.",
 "The beauty of serendipity is that it shows up only for you."
-
-];
-
-const thoughtsPerPage = 10;
-let currentPage = 1;
-
-function displayThoughts() {
-    const start = (currentPage - 1) * thoughtsPerPage;
-    const end = start + thoughtsPerPage;
-    const thoughtsContainer = document.getElementById("thoughts-container");
-
-    // Clear existing content
-    thoughtsContainer.innerHTML = "";
-
-    // Display only the thoughts for the current page
-    thoughts.slice(start, end).forEach(thought => {
-        const p = document.createElement("p");
-        p.textContent = thought;
-        thoughtsContainer.appendChild(p);
-    });
-
-    // Update page number
-    document.getElementById("pageNumber").textContent = `Page ${currentPage}`;
-
-    // Disable/Enable buttons
-    document.getElementById("prevBtn").disabled = currentPage === 1;
-    document.getElementById("nextBtn").disabled = end >= thoughts.length;
-}
-
-// Navigation Functions
-function nextPage() {
-    if ((currentPage * thoughtsPerPage) < thoughts.length) {
-        currentPage++;
-        displayThoughts();
-    }
-}
-
-function prevPage() {
-    if (currentPage > 1) {
-        currentPage--;
-        displayThoughts();
-    }
-}
-
-// Load first page
-displayThoughts();
     ];
 
     const thoughtsPerPage = 10;
@@ -137,6 +90,7 @@ displayThoughts();
     const nextBtn = document.getElementById("nextBtn");
     const pageNumber = document.getElementById("pageNumber");
 
+    // Check if elements exist
     if (!thoughtsContainer || !prevBtn || !nextBtn || !pageNumber) {
         console.error("One or more elements not found. Check HTML structure.");
         return;
