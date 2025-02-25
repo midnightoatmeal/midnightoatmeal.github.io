@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const thoughts = [
       "I set out to know the secrets of the heart only to understand that the heart doesn't exist.”,
-        "Everyone was infinitely evil and good; and thats how we were carrying on.",
         "I had so much love in me that I could drown my lover.",
         "I needed a friend; God wasnt enough.",
         "Being with no heart is terribly boring.",
@@ -17,8 +16,6 @@ document.addEventListener("DOMContentLoaded", function() {
         "Quantum mechanics is science's way of approaching mysticism.",
         "All private suffering stems from annoying God.",
         "Everything is happening for the first and the last time forever.”,
-        "I think what most intelligent people do wrong is to begin to ignore conscience in the light of their knowledge. Conscience is raw light, and knowledge, which is new, is an artificial light.",
-        "More knowledge can obscure your view sometimes.",
         "There's infinite wisdom in serving others, more than books can ever hold.",
         "Fear the beginning of the disappearance of pain.",
         "When seeing a young mammal struggling to take its first steps, its neurons trying to make the connections to make sense of this ride that's about to begin, to make sense of standing up, it's so evident that we are nothing more than random particles accidentally stitched up together, and are kicked out of blissful nothingness into this life of pain and unnecessary misery. But then the next thing it does is to go and lick its mother.",
