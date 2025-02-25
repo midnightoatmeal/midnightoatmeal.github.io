@@ -1,6 +1,8 @@
-const thoughts = [
-  
-"I set out to know the secrets of the heart only to understand that the heart doesn't exist.”,
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("thoughts.js loaded successfully!"); // Debugging log
+
+    const thoughts = [
+      "I set out to know the secrets of the heart only to understand that the heart doesn't exist.”,
 "Everyone was infinitely evil and good; and thats how we were carrying on.",
 "I had so much love in me that I could drown my lover.",
 "I needed a friend; God wasnt enough.",
@@ -74,49 +76,51 @@ const thoughts = [
 "Manipulating words is manipulating reality.",
 "Life is nothing but what we truly wish for, and the consequences of getting them.",
 "The beauty of serendipity is that it shows up only for you."
+    ];
 
-];
+    const thoughtsPerPage = 10;
+    let currentPage = 1;
 
-const thoughtsPerPage = 10;
-let currentPage = 1;
-
-function displayThoughts() {
-    const start = (currentPage - 1) * thoughtsPerPage;
-    const end = start + thoughtsPerPage;
     const thoughtsContainer = document.getElementById("thoughts-container");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const pageNumber = document.getElementById("pageNumber");
 
-    // Clear existing content
-    thoughtsContainer.innerHTML = "";
+    if (!thoughtsContainer || !prevBtn || !nextBtn || !pageNumber) {
+        console.error("One or more elements not found. Check HTML structure.");
+        return;
+    }
 
-    // Display only the thoughts for the current page
-    thoughts.slice(start, end).forEach(thought => {
-        const p = document.createElement("p");
-        p.textContent = thought;
-        thoughtsContainer.appendChild(p);
+    function displayThoughts() {
+        thoughtsContainer.innerHTML = ""; // Clear old thoughts
+
+        const start = (currentPage - 1) * thoughtsPerPage;
+        const end = start + thoughtsPerPage;
+
+        thoughts.slice(start, end).forEach(thought => {
+            const p = document.createElement("p");
+            p.textContent = thought;
+            thoughtsContainer.appendChild(p);
+        });
+
+        pageNumber.textContent = `Page ${currentPage}`;
+        prevBtn.disabled = currentPage === 1;
+        nextBtn.disabled = end >= thoughts.length;
+    }
+
+    prevBtn.addEventListener("click", function() {
+        if (currentPage > 1) {
+            currentPage--;
+            displayThoughts();
+        }
     });
 
-    // Update page number
-    document.getElementById("pageNumber").textContent = `Page ${currentPage}`;
+    nextBtn.addEventListener("click", function() {
+        if ((currentPage * thoughtsPerPage) < thoughts.length) {
+            currentPage++;
+            displayThoughts();
+        }
+    });
 
-    // Disable/Enable buttons
-    document.getElementById("prevBtn").disabled = currentPage === 1;
-    document.getElementById("nextBtn").disabled = end >= thoughts.length;
-}
-
-// Navigation Functions
-function nextPage() {
-    if ((currentPage * thoughtsPerPage) < thoughts.length) {
-        currentPage++;
-        displayThoughts();
-    }
-}
-
-function prevPage() {
-    if (currentPage > 1) {
-        currentPage--;
-        displayThoughts();
-    }
-}
-
-// Load first page
-displayThoughts();
+    displayThoughts();
+});
