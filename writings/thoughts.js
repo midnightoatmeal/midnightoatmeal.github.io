@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
         "Don't envy the happiest joy of others; don't fear the saddest sorrow of others: your life already has the happiest of all joys and the saddest of all sadnesses.",
         "It's both simultaneously fair and unfair that we are brought into this world without our consent, a world where we don't know about anything, and yet where our mistaken decisions have consequences.”,
         "Life is nothing but what we truly wish for, and the consequences of getting them.",
-        "The beauty of serendipity is that it shows up only for you."
+        "The beauty of serendipity is that it shows up only for you.",
     ];
 
     const thoughtsPerPage = 10;
