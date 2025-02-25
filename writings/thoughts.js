@@ -1,9 +1,9 @@
 const thoughts = [
   
 "I set out to know the secrets of the heart only to understand that the heart doesnt exist.”,
-"Everyone was infinitely evil and good; and that's how we were carrying on.",
+"Everyone was infinitely evil and good; and thats how we were carrying on.",
 "I had so much love in me that I could drown my lover.",
-"I needed a friend; God wasn't enough.",
+"I needed a friend; God wasnt enough.",
 "Being with no heart is terribly boring.",
 "Dostoevsky was meant to write only about love.",
 "Sometimes I forget that Dostoevsky was an alien.",
