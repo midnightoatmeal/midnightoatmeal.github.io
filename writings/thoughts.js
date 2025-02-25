@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function() {
         "Quantum mechanics is science's way of approaching mysticism.",
         "All private suffering stems from annoying God.",
         "Everything is happening for the first and the last time forever.”,
-        "There's infinite wisdom in serving others, more than books can ever hold.",
         "Fear the beginning of the disappearance of pain.",
         "When seeing a young mammal struggling to take its first steps, its neurons trying to make the connections to make sense of this ride that's about to begin, to make sense of standing up, it's so evident that we are nothing more than random particles accidentally stitched up together, and are kicked out of blissful nothingness into this life of pain and unnecessary misery. But then the next thing it does is to go and lick its mother.",
         "I found myself a nilhist, but that never prevented me from being completely in love with existence.",
