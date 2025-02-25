@@ -1,6 +1,6 @@
 const thoughts = [
   
-"I set out to know the secrets of the heart only to understand that the heart doesnt exist.”,
+"I set out to know the secrets of the heart only to understand that the heart doesn't exist.”,
 "Everyone was infinitely evil and good; and thats how we were carrying on.",
 "I had so much love in me that I could drown my lover.",
 "I needed a friend; God wasnt enough.",
