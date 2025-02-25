@@ -1,3 +1,7 @@
+aleart("thoughts.js has loaded!");
+console.log("thoughts.js has loaded correctly!");
+
+
 document.addEventListener("DOMContentLoaded", function() {
     console.log("thoughts.js loaded successfully!"); // Debugging log
 
