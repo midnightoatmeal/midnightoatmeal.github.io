@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>artwork</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #000000;
+            color: #add8e6;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #00bfff;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            border: 2px solid #00bfff;
+            border-radius: 5px;
+        }
+        a {
+            color: #87cefa;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #1e90ff;
+        }
+    </style>
+</head>
+<body>
+    <h1>art</h1>
+    <p>a collection of my visual work</p>
+    <div class="gallery">
+        <img src="art1.jpg" alt="artwork 1">
+        <img src="art2.jpg" alt="artwork 2">
+        <img src="art3.jpg" alt="artwork 3">
+        <!-- Add more images here -->
+    </div>
+    <p><a href="../index.html">← back home</a></p>
+</body>
+</html>
