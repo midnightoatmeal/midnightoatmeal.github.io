@@ -1,66 +1,248 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>lionel rozario</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <style>
-        body {
-            font-family: "Courier New", Courier, monospace;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            background-color: #000000;
-            color: #add8e6;
-        }
-        h1 {
-            color: #00bfff;
-        }
-        nav a {
-            text-decoration: none;
-            color: #87cefa;
-            font-weight: bold;
-        }
-        nav a:hover {
-            color: #1e90ff;
-        }
-        footer {
-            margin-top: 80px;
-            text-align: center;
-        }
-        footer a {
-            text-decoration: none;
-            color: #87cefa;
-        }
-        footer a:hover {
-            color: #1e90ff;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>lionel rozario</title>
+  <meta name="description" content="I study the brain and build neural networks. I also write and make music." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://midnightoatmeal.github.io" />
+  <meta name="theme-color" content="#0b0b0f" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="lionel rozario" />
+  <meta property="og:description" content="I study the brain and build neural networks. I also write and make music." />
+  <meta property="og:url" content="https://midnightoatmeal.github.io" />
+  <meta property="og:image" content="/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    /* ===== Design tokens ===== */
+    :root {
+      --bg: #0b0b0f;       /* near-black */
+      --fg: #e8f1f5;       /* soft white */
+      --muted: #98a2ad;    /* subdued text */
+      --card: #10131a;     /* card background */
+      --stroke: #202634;   /* outlines */
+      --accent: #7fe3ff;   /* cyan accent */
+      --accent-2: #9be7ff; /* links hover */
+      --link: #b6ecff;     /* links base */
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      --radius: 16px;
+      --maxw: 980px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, system-ui, sans-serif;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root { --bg:#f7fbff; --fg:#0b0b0f; --card:#ffffff; --stroke:#e7eef7; --muted:#5a6570; --link:#0b6cae; --accent:#0066ff; --accent-2:#0a84ff; }
+      header .brand a { color: var(--fg); }
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--fg);
+      background: radial-gradient(1200px 500px at 60% -10%, rgba(127,227,255,0.12), transparent),
+                  radial-gradient(800px 400px at -10% 20%, rgba(127,227,255,0.08), transparent),
+                  var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: var(--link); text-decoration: none; }
+    a:hover, a:focus-visible { color: var(--accent-2); text-decoration: underline; outline: none; }
+
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 28px 20px 64px; }
+
+    /* ===== Skip link for a11y ===== */
+    .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+    .skip-link:focus { left: 16px; top: 16px; width: auto; height: auto; padding: 8px 12px; background: var(--card); color: var(--fg); border: 1px solid var(--stroke); border-radius: 10px; }
+
+    /* ===== Header / Nav ===== */
+    header { position: sticky; top: 0; backdrop-filter: blur(8px); background: color-mix(in oklab, var(--bg), transparent 30%); border-bottom: 1px solid var(--stroke); z-index: 10; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand a { font-weight: 700; letter-spacing: 0.5px; }
+    .brand small { color: var(--muted); font-weight: 500; margin-left: 8px; }
+    .links { display: flex; flex-wrap: wrap; gap: 14px; }
+    .links a { font-weight: 600; }
+    .links a[aria-current="page"] { color: var(--accent); }
+
+    /* ===== Hero ===== */
+    .hero { padding: 48px 0 20px; }
+    .hero h1 { font-size: clamp(28px, 5vw, 48px); margin: 0 0 8px; letter-spacing: -0.5px; }
+    .hero p { font-size: clamp(16px, 2.5vw, 20px); color: var(--muted); margin: 0; }
+    .cta { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 999px; border: 1px solid var(--stroke); background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0)); box-shadow: var(--shadow); font-weight: 600; }
+    .btn:hover { transform: translateY(-1px); }
+
+    /* ===== Sections ===== */
+    section { margin-top: 36px; }
+    .section-title { display: flex; align-items: center; gap: 8px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; color: var(--muted); font-size: 12px; }
+
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+    .col-12 { grid-column: span 12; }
+    .col-6 { grid-column: span 6; }
+    .col-4 { grid-column: span 4; }
+
+    @media (max-width: 860px) { .col-6, .col-4 { grid-column: span 12; } }
+
+    .card { background: linear-gradient(180deg, color-mix(in oklab, var(--card), transparent 15%), var(--card)); border: 1px solid var(--stroke); border-radius: var(--radius); padding: 16px; height: 100%; transition: transform 120ms ease, border-color 120ms ease; }
+    .card:hover { transform: translateY(-2px); border-color: color-mix(in oklab, var(--accent), var(--stroke)); }
+    .card h3 { margin: 0 0 6px; font-size: 18px; letter-spacing: 0.2px; }
+    .card p { margin: 0; color: var(--muted); }
+    .card .meta { margin-top: 10px; font-size: 13px; color: var(--muted); }
+    .ext { display: inline-flex; align-items: center; gap: 6px; }
+    .ext svg { width: 14px; height: 14px; }
+
+    /* ===== Footer ===== */
+    footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--stroke); color: var(--muted); font-size: 14px; }
+    .socials { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+    .socials a { border: 1px solid var(--stroke); border-radius: 999px; padding: 6px 10px; font-weight: 600; }
+
+    /* ===== Utility ===== */
+    .visually-hidden { position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0; clip: rect(0 0 0 0); overflow: hidden; white-space: nowrap; }
+  </style>
 </head>
 <body>
- <h1>lionel rozario</h1>
-<p>I like to study the brain and the neural network, think about everything, write, and make music.</p>
-<nav aria-label="Main Navigation">
-    <a href="projects/index.html">projects</a> |
-    <a href="https://scholar.google.com/citations?user=hlqLSbYAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">research</a> |
-    <a href="https://lionelrozario.substack.com" target="_blank" rel="noopener noreferrer">writings</a> |
-    <a href="https://deadreznors.bandcamp.com/album/mozarts" target="_blank" rel="noopener noreferrer">music</a> |
-    <a href="art/index.html">art</a>
-</nav>
-    </nav>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header>
+    <div class="wrap nav" role="navigation" aria-label="Main">
+      <div class="brand">
+        <a href="/" aria-current="page">lionel rozario</a>
+        <small>ai/ml • writing • music</small>
+      </div>
+      <nav class="links" aria-label="Primary">
+        <a href="/projects/">projects</a>
+        <a href="https://scholar.google.com/citations?user=hlqLSbYAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">research</a>
+        <a href="https://lionelrozario.substack.com" target="_blank" rel="noopener noreferrer">writings</a>
+        <a href="https://deadreznors.bandcamp.com/album/mozarts" target="_blank" rel="noopener noreferrer">music</a>
+        <a href="/art/">art</a>
+      </nav>
+    </div>
+  </header>
 
-    <footer>
-        <p>my: 
-            <a href="https://github.com/midnightoatmeal" target="_blank">GitHub</a> |
-            <a href="https://huggingface.co/midnightoatmeal" target="_blank">Hugging Face</a> |
-            <a href="https://x.com/data_decays" target="_blank">X</a> |
-            <a href="https://www.linkedin.com/in/lionelrozario/" target="_blank">LinkedIn</a> |
-            <a href="https://soundcloud.com/scatterbrain_x" target="_blank">SoundCloud</a> |
-            <a href="https://open.spotify.com/user/21izhhdzvbxlbl3cd3hbsizoa/playlists" target="_blank">Spotify</a>
-            
-        </p>
-    </footer>
+  <main id="content" class="wrap" role="main">
+    <!-- Hero -->
+    <section class="hero" aria-label="Intro">
+      <h1>i theorizee depth psychology and world models.</h1>
+      <p>some ai projects i’ve been working on:</p>
+      <div class="cta">
+        <a class="btn" href="https://github.com/midnightoatmeal" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
+        <a class="btn" href="/projects/">See projects</a>
+        <a class="btn" href="lionelrozario98@gmail.com" aria-label="email">Email</a>
+      </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section aria-labelledby="projects-title">
+      <div class="section-title" id="arxiv-agent">featured projects</div>
+      <div class="grid" style="margin-top:12px;">
+        <article class="card col-6">
+          <h3><a class="ext" href="https://huggingface.co/spaces/midnightoatmeal/arxiv-agent" target="_blank" rel="noopener noreferrer">arxiv‑agent <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13 3h8v8h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H13V3z"/></svg></a></h3>
+          <p>Multi‑perspective paper analyzer with Optimist/Skeptic/Ethicist agents. Built a simple UI on Spaces for broader use.</p>
+          <div class="meta">Python • LLM Agents • HF Spaces</div>
+        </article>
+        <article class="card col-6">
+          <h3><a class="ext" href="https://whatis42.streamlit.app" target="_blank" rel="noopener noreferrer">Project 42 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13 3h8v8h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H13V3z"/></svg></a></h3>
+          <p>Reproducibility checker that parses papers/code for hyperparameters, datasets, and training details.</p>
+          <div class="meta">Python • Parsers • Evaluation</div>
+        </article>
+        <article class="card col-6">
+          <h3><a class="ext" href="https://huggingface.co/midnightoatmeal/ppo-LunarLander-v2" target="_blank" rel="noopener noreferrer">LunarLander‑v2 PPO <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13 3h8v8h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H13V3z"/></svg></a></h3>
+          <p>This project trains a reinforcement learning agent using Proximal Policy Optimization (PPO) to land a spacecraft in OpenAI Gym's LunarLander-v2 environment.</p>
+          <div class="meta">RL • SB3 • Gymnasium</div>
+        </article>
+        <article class="card col-6">
+          <h3><a class="ext" href="https://github.com/midnightoatmeal/nanoGPT-Nietzsche" target="_blank" rel="noopener noreferrer">NanoGPT — Nietzsche <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13 3h8v8h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H13V3z"/></svg></a></h3>
+          <p>Character‑level text generator trained on <em>Thus Spoke Zarathustra</em>; notes on training gaps and improvements.</p>
+          <div class="meta">PyTorch • Training • Text Gen</div>
+        </article>
+      </div>
+      <p style="margin-top:10px"><a href="/projects/">Browse all projects →</a></p>
+    </section>
+
+    <!-- Writing & Research -->
+    <section aria-labelledby="writing-title">
+      <div class="section-title" id="writing-title">writing & research</div>
+      <div class="grid" style="margin-top:12px;">
+        <article class="card col-6">
+          <h3><a class="ext" href="https://lionelrozario.substack.com" target="_blank" rel="noopener noreferrer">Substack <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13 3h8v8h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H13V3z"/></svg></a></h3>
+          <p>Essays on intelligence, philosophy, and the craft of building models.</p>
+        </article>
+        <article class="card col-6">
+          <h3><a class="ext" href="https://scholar.google.com/citations?user=hlqLSbYAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13 3h8v8h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H13V3z"/></svg></a></h3>
+          <p>Papers, citations, and ongoing research notes.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Music & Art -->
+    <section aria-labelledby="music-title">
+      <div class="section-title" id="music-title">music & art</div>
+      <div class="grid" style="margin-top:12px;">
+        <article class="card col-6">
+          <h3><a class="ext" href="https://deadreznors.bandcamp.com/album/mozarts" target="_blank" rel="noopener noreferrer">Dead Reznors — <em>Mozarts</em> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13 3h8v8h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H13V3z"/></svg></a></h3>
+          <p>.</p>
+        </article>
+        <article class="card col-6">
+          <h3><a class="ext" href="/art/">Art <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13 3h8v8h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H13V3z"/></svg></a></h3>
+          <p>Sketches and visual experiments.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Social / Contact -->
+    <section aria-labelledby="contact-title">
+      <div class="section-title" id="contact-title">contact & socials</div>
+      <div class="grid" style="margin-top:12px;">
+        <div class="card col-12">
+          <p style="margin-top:0">Open to interesting research, projects and collaborations.</p>
+          <div class="socials">
+            <a href="mailto:lionelrozario98@gmail.com">email</a>
+            <a href="https://x.com/data_decays" target="_blank" rel="noopener noreferrer">X / twitter</a>
+            <a href="https://github.com/midnightoatmeal" target="_blank" rel="noopener noreferrer">gitHub</a>
+            <a href="https://huggingface.co/midnightoatmeal" target="_blank" rel="noopener noreferrer">hugging face</a>
+            <a href="https://lionelrozario.substack.com" target="_blank" rel="noopener noreferrer">substack</a>
+            <a href="https://www.linkedin.com/in/lionelrozario/" target="_blank" rel="noopener noreferrer">linkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Structured data for richer previews -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Lionel Rozario",
+      "url": "https://lionelrozario.github.io/",
+      "jobTitle": "AI/ML Engineer, Writer, Musician",
+      "sameAs": [
+        "https://github.com/midnightoatmeal",
+        "https://x.com/data_decays",
+        "https://lionelrozario.substack.com",
+        "https://scholar.google.com/citations?user=hlqLSbYAAAAJ&hl=en",
+        "https://deadreznors.bandcamp.com/album/mozarts"
+      ]
+    }
+    </script>
+  </main>
+
+  <footer class="wrap" role="contentinfo">
+    <div>© <span id="year"></span> Lionel Rozario. Built with plain HTML/CSS. <span class="visually-hidden">All rights reserved.</span></div>
+  </footer>
+
+  <script>
+    // Small enhancements only; no frameworks
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Optional: analytics (paste your script) -->
+  <!-- <script defer data-domain="lionelrozario.github.io" src="https://plausible.io/js/script.js"></script> -->
 </body>
 </html>
-
