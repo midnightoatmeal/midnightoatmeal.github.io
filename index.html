@@ -51,6 +51,14 @@
       padding: 40px 20px;
     }
 
+    .profile-image {
+      width: 160px; /* Medium size */
+      height: 160px; /* Ensure it's square if you want it circular */
+      border-radius: 50%; /* Makes it circular */
+      object-fit: cover; /* Ensures image covers the area without distortion */
+      margin-bottom: 32px; /* Space between image and title */
+    }
+
     h1 {
       font-size: 1.75rem; /* 28px */
       font-weight: 600;
@@ -60,15 +68,15 @@
 
     nav {
       display: flex;
-      flex-wrap: wrap; /* Allows links to wrap on small screens */
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 12px 24px; /* Row and column gap */
+      gap: 12px 24px;
     }
 
     nav a {
       color: var(--muted);
       text-decoration: none;
-      font-size: 1rem; /* 16px */
+      font-size: 1rem;
       transition: color 150ms ease-in-out;
     }
 
@@ -80,6 +88,8 @@
 <body>
 
   <main class="container">
+    <img src="profile.jpg" alt="a photo of lionel rozario" class="profile-image">
+
     <h1>lionel rozario</h1>
 
     <nav>
@@ -88,8 +98,9 @@
       <a href="https://scholar.google.com/citations?user=hlqLSbYAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">research</a>
       <a href="https://x.com/data_decays" target="_blank" rel="noopener noreferrer">twitter</a>
       <a href="https://huggingface.co/midnightoatmeal" target="_blank" rel="noopener noreferrer">huggingface</a>
-      <a href="https://www.linkedin.com/in/lionelrozario/" target="_blank" rel="noopener noreferrer">linkedin</a>
-      <a href="https://soundcloud.com/deadreznors" target="_blank" rel="noopener noreferrer">soundcloud</a>
+      <a href="https://www.linkedin.com/in/lionel-rozario/" target="_blank" rel="noopener noreferrer">linkedin</a>
+      <a href="https://deadreznors.bandcamp.com target="_blank" rel="noopener noreferrer">music</a>
+      <a href="https://soundcloud.com/scatterbrain_x target="_blank" rel="noopener noreferrer">soundcloud</a>
     </nav>
   </main>
 
