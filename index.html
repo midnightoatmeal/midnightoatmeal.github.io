@@ -16,10 +16,23 @@
     body {
       margin: 0;
       font-family: 'IBM Plex Mono', 'Courier New', monospace;
-      background: #000;
+      background: #000 url('conway.gif') center center fixed;
+      background-size: cover;
       color: #fff;
     }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
     .hero {
+      position: relative;
+      z-index: 1;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -62,7 +75,7 @@
     .btn:hover {
       opacity: 0.6;
     }
-    @media (max-width: 430px) {
+    @media (max-width: 640px) {
       h1 {
         font-size: 2rem;
       }
@@ -74,7 +87,6 @@
 </head>
 <body>
   <div class="hero">
-    <!-- Replace this src with your actual image path -->
     <img src="scan.gif" alt="" class="hero-image" />
     
     <h1>lionel rozario</h1>
@@ -94,7 +106,6 @@
       </a>
       <a href="https://deadreznors.bandcamp.com" target="_blank" rel="noopener noreferrer" class="btn">
         music
-      </a>
       </a>
     </div>
   </div>
